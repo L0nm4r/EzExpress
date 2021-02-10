@@ -1,0 +1,50 @@
+doctype html
+html(lang="en")
+  head
+    title ExpressBlog
+    link(rel="stylesheet", href="/bower_components/bootstrap/dist/css/bootstrap.css")
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href='/') ExpressBlog
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarsExample04' aria-controls='navbarsExample04' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarsExample04.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item.active
+              a.nav-link(href='/')
+                | Home 
+                span.sr-only (current)
+            if user
+              li.nav-item
+                a.nav-link(href='/articles/new') Add article
+          ul.navbar-nav.narbar-right
+            if user
+              li.nav-item.active
+                a.nav-link(href='/users/logout')
+                  | Logout 
+                  span.sr-only (current)               
+            else 
+              li.nav-item.active
+                a.nav-link(href='/users/login')
+                  | Login 
+                  span.sr-only (current)
+              li.nav-item.active
+                a.nav-link(href='/users/register')
+                  | Register 
+                  span.sr-only (current)
+    .container
+      br
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+      br
+      hr
+      footer 
+        p Copyright &copy; 2021
+    script(src="/bower_components/jquery/dist/jquery.js")
+    script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+    script(src="/js/main.js")
