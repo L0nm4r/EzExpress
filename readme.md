@@ -2,6 +2,8 @@
 
 practice for Express beginners, just for fun
 
+![pic](readme/1612942806489.png)
+
 
 ## 项目初始化
 1. npm init -y  初始化package.json
@@ -326,7 +328,7 @@ app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   next();
 });
-``` 
+```
 使用: `req.flash('status','message')`
 ```js
 router.get('/logout', function(req, res){
@@ -497,7 +499,9 @@ app.get('*',function(req,res,next){
 ```
 
 ## markdown支持
-cnpm install markdown --save
+
+### markdown
+`cnpm install markdown --save`
 ```js
 const markdown = require('markdown').markdown
 //...
@@ -509,3 +513,17 @@ res.render('articles/show',{
 //...
 ```
 效果一般
+
+### marked
+`cnpm install marked --save`
+
+效果比较好
+```js
+const marked = require('marked')
+
+article.body=marked(article.body)
+res.render('articles/show',{
+    article:article,
+    author:user.name
+})
+```

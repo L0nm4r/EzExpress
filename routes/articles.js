@@ -1,6 +1,8 @@
 const { request } = require('express')
 const express = require('express')
-const markdown = require('markdown').markdown
+// const markdown = require('markdown').markdown
+const marked = require('marked')
+
 
 const router = express.Router()
 const { check, validationResult } = require('express-validator')
@@ -15,7 +17,8 @@ router.get('/new',ensureAuthenticated,function(req,res){
 router.get('/:id',function(req,res){
   Article.findById(req.params.id,function(err,article){
     User.findById(article.author, function(err,user){
-        article.body=markdown.toHTML(article.body)
+        // article.body=markdown.toHTML(article.body)
+        article.body=marked(article.body)
         res.render('articles/show',{
             article:article,
             author:user.name
