@@ -2,7 +2,7 @@
 
 practice for Express beginners, just for fun
 
-![image](https://github.com/L0nm4r/EzExpress/blob/master/README/1612942806489.png)
+![image](https://github.com/L0nm4r/EzExpress/blob/master/readme/1612942806489.png)
 
 
 ## 项目初始化
