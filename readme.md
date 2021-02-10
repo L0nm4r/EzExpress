@@ -124,6 +124,7 @@ Windows下,下载安装包,next,next,next...
 3. 连接
 `mongodb://admin:123456@localhost/`
 4. 概念解析
+
 SQL+-------------+MongoDB
 
 database          database
