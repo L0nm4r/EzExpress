@@ -125,26 +125,26 @@ Windows下,下载安装包,next,next,next...
 `mongodb://admin:123456@localhost/`
 4. 概念解析
 
-SQL+-------------+MongoDB
+SQL =>MongoDB
 
-database          database
+database => database
 
-table             collection
+table  =>collection
 
-row               document
+row    =>      document
 
-column            field
+column   =>  field
 
-index             index
+index =>    index
+
 5. 简单使用
 show dbs显示数据库
 
-创建数据库
-
+创建数据库 
+```js
 use nodejs-blog
-
 db.createCollection('articles')
-
+```
 添加记录:
 ```js
 db.articles.insert({
