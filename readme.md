@@ -1,4 +1,8 @@
-## 简介
+## introduction
+
+practice for node beginners, just for fun
+
+
 ## 项目初始化
 1. npm init -y  初始化package.json
 2. cnpm install express --save 安装express (--save 表示运行依赖)
@@ -37,13 +41,17 @@ console.log('Server started on port 4000...')
 
 5. debug模式
 cnpm install nodemon --save-dev (表示开发依赖)
+
 然后修改start启动脚本为nodemon app
 
 
 ## 模板引擎Pug/Jade
 开源项目地址 :https://github.com/pugjs/pug
+
 手册: https://pugjs.org/api/getting-started.html
+
 特性:使用缩进代替标签
+
 1. 安装:cnpm install pug --save
 2. 修改app.js
 ```js
@@ -54,6 +62,7 @@ app.set('views',path.join(__dirname,'views')) // 模板路径
 app.set('view engine','pug') //模板引擎
 ```
 path:Node.js模块, 提供了一些用于处理文件路径的小工具
+
 `path.join([path1][, path2][, ...])` : 用于连接路径。该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"
 3. 新建模板views/index.pug
 写法:
@@ -116,30 +125,44 @@ Windows下,下载安装包,next,next,next...
 `mongodb://admin:123456@localhost/`
 4. 概念解析
 SQL+-------------+MongoDB
+
 database          database
+
 table             collection
+
 row               document
+
 column            field
+
 index             index
 5. 简单使用
 show dbs显示数据库
+
 创建数据库
+
 use nodejs-blog
+
 db.createCollection('articles')
+
 添加记录:
+```js
 db.articles.insert({
   title:'One',
   author:'lonmar',
   body:'This is article One'
 });
-查询:
-db.articles.find();
+```
+查询:`db.articles.find();`
 
 ## node.js连接&使用MondoDB
 使用mongoose, 文档 https://mongoosejs.com/
+
 安装: cnpm install mongoose --save
+
 导入: const mongoose = require('mongoose')
+
 连接: mongoose.connect('mongodb://localhost/dbName', {useNewUrlParser: true, useUnifiedTopology: true});
+
 常用事件:
 - error : db.on('error', console.error.bind(console, 'connection error:'));
 - open: db.once('open', function() {
@@ -205,9 +228,13 @@ app.delete('/articles/:id', function(req, res) {
 
 ## 解析POST body-parser
 Node.js body parsing middleware
+
 安装: `cnpm install body-parser --save`
+
 手册: https://www.npmjs.com/package/body-parser
+
 导入: `var bodyParser = require('body-parser')`
+
 ```js
 bodyParser.text([options]) //解析文本
 bodyParser.json([options]) //json
@@ -239,17 +266,18 @@ app.use(express.static(path.join(__dirname,'public')))
 ```
 1. bower https://bower.io/
 管理js,css等
+
 安装 cnpm install -g bower
 2. 配置
 配置文件.bowerrc
+
 ```json
 {
   "directory": "public/bower_components"
 }
 ```
 3. 安装bootstrap
-Git Bash下 `bower install bootstrap`
-然后引入
+Git Bash下 `bower install bootstrap`, 然后引入
 ```jade
 link(rel="stylesheet",href="/bower_conponents/bootstrap/dist/css/bootstrap.css")
 ```
@@ -258,8 +286,11 @@ Git Bash下 `bower install jquery`
 
 ## express-session
 文档: https://github.com/expressjs/session
+
 安装: `cnpm install express-session --save`
+
 导入 `var session = require('express-session')`
+
 添加中间件:
 ```js
 app.use(session({
@@ -274,7 +305,9 @@ app.use(session({
 
 ## flash
 安装 `cnpm install express-messages connect-flash --save`
+
 文档 https://github.com/visionmedia/express-messages
+
 把下面代码添加到中间件部分即可
 ```js
 app.use(require('connect-flash')());
@@ -293,15 +326,18 @@ https://express-validator.github.io/docs/
 
 ## bcrypt
 cnpm install bcrypt --save
+
 https://www.npmjs.com/package/bcrypt
 
 
 ## Passport
 https://github.com/jaredhanson/passport
-http://www.passportjs.org/docs/
-cnpm install passport --save
-cnpm install  passport-local --save
 
+http://www.passportjs.org/docs/
+
+cnpm install passport --save
+
+cnpm install  passport-local --save
 
 
 ## markdown支持
